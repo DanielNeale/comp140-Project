@@ -5,7 +5,7 @@ using UnityEngine;
 public class RailController : MonoBehaviour
 {
     [SerializeField]
-    private Transform[] rails;
+    private Transform[] rails = null;
     
     private bool railOneActive;
     private bool railTwoActive;
