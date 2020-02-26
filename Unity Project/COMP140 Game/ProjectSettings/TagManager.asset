@@ -15,10 +15,10 @@ TagManager:
   - 
   - PostProcessing
   - 
-  - Train
-  - RailNode
-  - 
-  - 
+  - LeftTrain
+  - LeftRailNode
+  - RightTrain
+  - RightRailNode
   - 
   - 
   - 
