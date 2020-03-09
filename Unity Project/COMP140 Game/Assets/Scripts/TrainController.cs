@@ -20,12 +20,10 @@ public class TrainController : MonoBehaviour
     {
         if (node != null)
         {
-            int nodeX = Mathf.RoundToInt(node.transform.position.x * 10);
-            int nodeZ = Mathf.RoundToInt(node.transform.position.z * 10);
-            int trainX = Mathf.RoundToInt(transform.position.x * 10);
-            int trainZ = Mathf.RoundToInt(transform.position.z * 10);
-
-            Debug.Log((nodeX, trainX, nodeZ, trainZ));
+            int nodeX = Mathf.RoundToInt(node.transform.position.x * 5);
+            int nodeZ = Mathf.RoundToInt(node.transform.position.z * 5);
+            int trainX = Mathf.RoundToInt(transform.position.x * 5);
+            int trainZ = Mathf.RoundToInt(transform.position.z * 5);
 
             if (nodeX == trainX && nodeZ == trainZ)
             {
@@ -35,8 +33,8 @@ public class TrainController : MonoBehaviour
                 {
                     if (rail.GetChild(i) != node.transform)
                     {
-                        start = node.transform.position;
-                        end = rail.GetChild(i).position;
+                        start = new Vector3 (node.transform.position.x, transform.position.y, node.transform.position.z);
+                        end = new Vector3 (rail.GetChild(i).position.x, transform.position.y, rail.GetChild(i).position.z);
                     }
                 }
 
@@ -56,7 +54,12 @@ public class TrainController : MonoBehaviour
             transform.LookAt(otherTrain);
 
             time += Time.fixedTime;
-        }      
+        }
+
+        else
+        {
+            transform.position = new Vector3(transform.position.x + speed, transform.position.y, transform.position.z);
+        }
     }
 
     private void OnTriggerEnter(Collider collision)
