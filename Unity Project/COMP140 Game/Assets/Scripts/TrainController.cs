@@ -6,8 +6,10 @@ public class TrainController : MonoBehaviour
 {
     [SerializeField]
     private float speed = 0;
+    //[SerializeField]
+    //private Transform otherTrain = null;
     [SerializeField]
-    private Transform otherTrain = null;
+    Transform startPos = null;
 
     private Vector3 start;
     private Vector3 end;
@@ -15,6 +17,11 @@ public class TrainController : MonoBehaviour
     private float time;
 
     private Transform node;
+
+    void Start()
+    {
+        transform.position = startPos.position;
+    }
 
     void Update()
     {
@@ -51,7 +58,7 @@ public class TrainController : MonoBehaviour
         {
             transform.position = Vector3.Lerp(start, end, time * newSpeed);
 
-            transform.LookAt(otherTrain);
+            //transform.LookAt(otherTrain);
 
             time += Time.fixedTime;
         }
